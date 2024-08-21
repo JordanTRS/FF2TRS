@@ -755,8 +755,10 @@ FFValues.Status.Changed:Connect(function(value)
         end
 
         module.Events.PlayFinishedEvent:Fire(CURRENT_PLAY_INFO)
-        module.Values.CurrentDrive.PLAYS = module.Values.CurrentDrive.PLAYS+1
-        module.Values.CurrentDrive.YARDS = module.Values.CurrentDrive.YARDS+CURRENT_PLAY_INFO.yards_gained
+	if not (CURRENT_PLAY_INFO.kickoff) then
+            module.Values.CurrentDrive.PLAYS = module.Values.CurrentDrive.PLAYS+1
+            module.Values.CurrentDrive.YARDS = module.Values.CurrentDrive.YARDS+CURRENT_PLAY_INFO.yards_gained
+	end
     end
 end)
 
@@ -901,8 +903,8 @@ FFValues.Quarter.Changed:Connect(function(new)
 	
 	if (module.Values.Quarter == 3 or (module.Values.Quarter >= 5 and not module.Values.Status == FINAL)) then
 	    module.Values.CurrentDrive.PLAYS = 0
-        module.Values.CurrentDrive.TOP = 0
-        module.Values.CurrentDrive.YARDS = 0
+            module.Values.CurrentDrive.TOP = 0
+            module.Values.CurrentDrive.YARDS = 0
 	end	
 end)
 
@@ -934,7 +936,7 @@ FFValues.PossessionTag.Changed:Connect(function(new)
         module.Values.Possession = true
     end
 	
-	module.Values.CurrentDrive.PLAYS = 0
+    module.Values.CurrentDrive.PLAYS = 0
     module.Values.CurrentDrive.TOP = 0
     module.Values.CurrentDrive.YARDS = 0
 end)
