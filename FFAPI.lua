@@ -900,12 +900,6 @@ FFValues.Quarter.Changed:Connect(function(new)
 
     module.OldValues.Quarter = module.Values.Quarter
     module.Values.Quarter = new
-	
-	if (module.Values.Quarter == 3 or (module.Values.Quarter >= 5 and not module.Values.Status == FINAL)) then
-	    module.Values.CurrentDrive.PLAYS = 0
-            module.Values.CurrentDrive.TOP = 0
-            module.Values.CurrentDrive.YARDS = 0
-	end	
 end)
 
 FFValues.TimerTag.Changed:Connect(function(new)
