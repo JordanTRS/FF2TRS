@@ -941,7 +941,7 @@ end)
 task.spawn(function()
     while(wait(10)) do
         print("[FF-API] Collecting player stats.")
-        local playerStats = Services["Storage"].Remotes.StatsTransfer:InvokeServer("server","avg")
+        local playerStats = Services["Storage"].Remotes.StatsTransfer:InvokeServer("game","avg")
         module.Values.PlayerStats = playerStats
         module.Events.PlayerStatsUpdated:Fire(playerStats)
         module.LastEvents.PlayerStatsUpdated = tick()
@@ -952,7 +952,6 @@ task.spawn(function()
         module.Values.AwayInfo.PASS = 0
         module.Values.AwayInfo.RUSH = 0
         module.Values.AwayInfo.TURN = 0
-	print(playerStats)
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
 
@@ -967,6 +966,13 @@ task.spawn(function()
             if (player.Team.Name == FFValues.Home.Value.Name) then
                 isHome = true
             end
+
+            local playersStats = playerStats[tostring(player.UserId)]
+	    for _,test in playersStats do
+	        for name2,test2 in test do
+	            print(name2, test2)
+	        end
+	    end
 				
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
