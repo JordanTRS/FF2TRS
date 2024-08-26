@@ -954,6 +954,13 @@ task.spawn(function()
         module.Values.AwayInfo.TURN = 0
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
+	    for name,test in pairs(player) do
+		print(name, test)
+		for test2,data in pairs(test) do
+		    print(test2, data)
+		end
+	    end
+				
             if not (playerStats[tostring(player.UserId)]) then
                 continue
             end
@@ -967,12 +974,6 @@ task.spawn(function()
             end
 
             local playersStats = playerStats[tostring(player.UserId)]
-
-	    for _, data in ipairs(playersStats) do
-		for key, value in pairs(data) do
-		    print('\t', key, value)
-		end
-	    end
 				
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
