@@ -969,12 +969,20 @@ task.spawn(function()
             local playersStats = playerStats[tostring(player.UserId)]
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
+		print(playersStats["qb"]["yds"])
                 module.Values.HomeInfo.RUSH = module.Values.HomeInfo.RUSH+playersStats["rb"]["yds"]
+		print(playersStats["rb"]["yds"])
                 module.Values.HomeInfo.TURN = module.Values.HomeInfo.TURN+playersStats["qb"]["int"]+playersStats["def"]["rec"]
+		print(playersStats["qb"]["int"])
+		print(playersStats["def"]["rec"])
             else
                 module.Values.AwayInfo.PASS = module.Values.AwayInfo.PASS+playersStats["qb"]["yds"]
+		print(playersStats["qb"]["yds"])
                 module.Values.AwayInfo.RUSH = module.Values.AwayInfo.RUSH+playersStats["rb"]["yds"]
+		print(playersStats["rb"]["yds"])
                 module.Values.AwayInfo.TURN = module.Values.AwayInfo.TURN+playersStats["qb"]["int"]+playersStats["def"]["rec"]
+		print(playersStats["qb"]["int"])
+		print(playersStats["def"]["rec"])
             end
         end
     end
