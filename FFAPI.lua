@@ -954,7 +954,7 @@ task.spawn(function()
         module.Values.AwayInfo.TURN = 0
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
-	    for name,test in pairs(player) do
+	    for name,test in ipairs(player) do
 		print(name, test)
 		for test2,data in pairs(test) do
 		    print(test2, data)
