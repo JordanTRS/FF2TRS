@@ -967,6 +967,14 @@ task.spawn(function()
             end
 
             local playersStats = playerStats[tostring(player.UserId)]
+
+		for index, data in ipairs(playersStats) do
+		    print(index)
+		
+		    for key, value in pairs(data) do
+		        print('\t', key, value)
+		    end
+		end
 	    print(playerStats)
 				
             if (isHome) then
