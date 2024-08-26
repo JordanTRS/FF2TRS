@@ -954,7 +954,6 @@ task.spawn(function()
         module.Values.AwayInfo.TURN = 0
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
-	    print(player.."=".._)
             if not (playerStats[tostring(player.UserId)]) then
                 continue
             end
