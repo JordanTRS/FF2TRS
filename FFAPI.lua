@@ -968,14 +968,11 @@ task.spawn(function()
 
             local playersStats = playerStats[tostring(player.UserId)]
 
-		for index, data in ipairs(playersStats) do
-		    print(index)
-		
-		    for key, value in pairs(data) do
-		        print('\t', key, value)
-		    end
+	    for _, data in ipairs(playersStats) do
+		for key, value in pairs(data) do
+		    print('\t', key, value)
 		end
-	    print(playerStats)
+	    end
 				
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
