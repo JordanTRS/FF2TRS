@@ -970,7 +970,7 @@ task.spawn(function()
             local playersStats = playerStats[tostring(player.UserId)]
 		for _,test in playersStats do
 	            for name2,test2 in test do
-		        print(name2, test2)
+		        print(test, name2, test2)
 	            end
 	        end
 				
