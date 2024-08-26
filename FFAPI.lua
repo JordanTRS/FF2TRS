@@ -952,9 +952,9 @@ task.spawn(function()
         module.Values.AwayInfo.PASS = 0
         module.Values.AwayInfo.RUSH = 0
         module.Values.AwayInfo.TURN = 0
-	print(playerStats)
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
+	    print(player.."=".._)
             if not (playerStats[tostring(player.UserId)]) then
                 continue
             end
@@ -968,6 +968,8 @@ task.spawn(function()
             end
 
             local playersStats = playerStats[tostring(player.UserId)]
+	    print(playerStats)
+				
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
                 module.Values.HomeInfo.RUSH = module.Values.HomeInfo.RUSH+playersStats["rb"]["yds"]
