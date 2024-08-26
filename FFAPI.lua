@@ -956,11 +956,8 @@ task.spawn(function()
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
 	    for name,test in ipairs(player) do
 		print(name, test)
-		for test2,data in ipairs(test) do
-		    print(test2, data)
-		end
 	    end
-				
+
             if not (playerStats[tostring(player.UserId)]) then
                 continue
             end
