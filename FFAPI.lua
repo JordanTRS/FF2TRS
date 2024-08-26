@@ -952,6 +952,7 @@ task.spawn(function()
         module.Values.AwayInfo.PASS = 0
         module.Values.AwayInfo.RUSH = 0
         module.Values.AwayInfo.TURN = 0
+	print(playerStats)
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
 
@@ -966,16 +967,6 @@ task.spawn(function()
             if (player.Team.Name == FFValues.Home.Value.Name) then
                 isHome = true
             end
-
-            local playersStats = playerStats[tostring(player.UserId)]
-		for name,test in playersStats do
-		    local tempStat = name
-		    local tempStat2 = test
-		    print(name, test)
-	            for name2,test2 in test do
-		        print(tempStat, tempStat2, name2, test2)
-	            end
-	        end
 				
             if (isHome) then
                 module.Values.HomeInfo.PASS = module.Values.HomeInfo.PASS+playersStats["qb"]["yds"]
