@@ -941,7 +941,7 @@ end)
 task.spawn(function()
     while(wait(10)) do
         print("[FF-API] Collecting player stats.")
-        local playerStats = Services["Storage"].Remotes.StatsTransfer:InvokeServer("game","avg")
+        local playerStats = Services["Storage"].Remotes.StatsTransfer:InvokeServer("server","avg")
         module.Values.PlayerStats = playerStats
         module.Events.PlayerStatsUpdated:Fire(playerStats)
         module.LastEvents.PlayerStatsUpdated = tick()
@@ -970,9 +970,10 @@ task.spawn(function()
             local playersStats = playerStats[tostring(player.UserId)]
 		for name,test in playersStats do
 		    local tempStat = name
+		    local tempStat2 = test
 		    print(name, test)
 	            for name2,test2 in test do
-		        print(tempStat, name2, test2)
+		        print(tempStat, tempStat2, name2, test2)
 	            end
 	        end
 				
