@@ -954,8 +954,10 @@ task.spawn(function()
         module.Values.AwayInfo.TURN = 0
 
         for _,player in ipairs(Services["Players"]:GetPlayers()) do
-	    for name,test in ipairs(player) do
-		print(name, test)
+	    for _,test in ipairs(player) do
+	        for name2,test2 in ipairs(test) do
+		    print(name2, test2)
+	        end
 	    end
 
             if not (playerStats[tostring(player.UserId)]) then
