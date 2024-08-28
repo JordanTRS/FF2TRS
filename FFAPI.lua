@@ -939,7 +939,7 @@ end)
 -- Stats Loop
 -----------------------------------------------------------------------
 task.spawn(function()
-    while(wait(10)) do
+    while(wait(20)) do
         print("[FF-API] Collecting player stats.")
         local playerStats = Services["Storage"].Remotes.StatsTransfer:InvokeServer("game","avg")
         module.Values.PlayerStats = playerStats
