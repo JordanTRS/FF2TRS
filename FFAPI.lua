@@ -967,9 +967,6 @@ task.spawn(function()
                 isHome = true
             end
 
-	    print(player.Team)
-	    print(player.Team.Name)
-
             local playersStats = playerStats[tostring(player.UserId)]
 --	    for _,test in playersStats do
 --	        for name2,test2 in test do
